@@ -12,8 +12,9 @@ COPY ./src ./src
 
 # Extract the current commit hash and set it as a build argument
 ARG COMMIT_HASH
-RUN COMMIT_HASH=$(git rev-parse HEAD) && \
-    echo $COMMIT_HASH > commit_hash.txt
+RUN COMMIT_HASH=$(git rev-parse HEAD) 
+# && \
+    # echo $COMMIT_HASH > commit_hash.txt
 
 # Set the environment variable with the commit hash
 ENV COMMIT_HASH ${COMMIT_HASH}
