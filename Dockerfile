@@ -10,7 +10,7 @@ WORKDIR /app
 COPY ./src ./src
 
 RUN --mount=target=. \
-  make REVISION=$(git rev-parse HEAD) build
+  echo $(git rev-parse HEAD) > REVISION
 
 RUN echo $REVISION
 RUN deno cache --unstable src/main.ts
